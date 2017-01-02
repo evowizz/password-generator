@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.evo.passwordgenerator.MainActivity">
+    <item
+        android:id="@+id/theme_changer"
+        android:orderInCategory="100"
+        android:title="Set dark theme"
+        android:icon="@drawable/ic_theme_default"
+        app:showAsAction="always" />
+</menu>

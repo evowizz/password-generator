@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Password Generator</string>
+    <string name="action_settings">Settings</string>
+    <string name="save">SAVE</string>
+    <string name="add_a_name_to_save_the">Add a name to save the</string>
+    <string name="password">Password:</string>
+    <string name="generate">Generate</string>
+    <string name="number_of_characters">Number of characters</string>
+    <string name="prefs_theme_key">theme</string>
+
+</resources>

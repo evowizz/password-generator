@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    android:weightSum="1"
+    tools:context="com.evo.passwordgenerator.MainActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="@string/app_name" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="8dp"
+            android:background="?colorPrimary">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinput1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/charNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/number_of_characters"
+                    android:inputType="numberDecimal"
+                    android:digits="0123456789"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinput2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textinput1">
+
+                <EditText
+                    android:id="@+id/generatedPassword"
+                    style="@style/Widget.AppCompat.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="Generated password will appear here" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/clayout">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/generateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_generate"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                app:rippleColor="@color/colorPrimary1"/>
+               <!-- android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp" -->
+
+            </android.support.design.widget.CoordinatorLayout>
+        </RelativeLayout>
+</RelativeLayout>
