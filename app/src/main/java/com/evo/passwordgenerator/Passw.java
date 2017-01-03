@@ -20,13 +20,14 @@ class Passw {
         return generatedPassword;
     }
 
+
     public String randomChar() {
 
         if (charNum < 1) {
-            return "NOPE !";
+            return "Please, use a value between 1 and 100";
 
         } if (charNum > 100) {
-            return "NOPE !";
+            return "Please, use a value 1 and 100";
 
         }
 

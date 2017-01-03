@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
+import android.text.InputType;
 import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private EditText charNumber;
     private FloatingActionButton generateButton;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
         final View clayout = (View) findViewById(R.id.clayout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu);
         setSupportActionBar(toolbar);
 
         charNumber = (EditText) findViewById(R.id.charNumber);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         generatedPassword.setMovementMethod(new ScrollingMovementMethod());
         generateButton = (FloatingActionButton) findViewById(R.id.generateButton);
 
-
+        generatedPassword.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
 //        generate button in use get input from charNumber(EditText) and use Passw.java, charNumber()
@@ -61,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     charNumber.setText("");
 
                 } else {
-                    Snackbar snackbarNC = Snackbar.make(clayout, "No network connection.", Snackbar.LENGTH_LONG)
-                            .setAction("OK", new View.OnClickListener() {
+                    Snackbar snackbarNC = Snackbar.make(clayout,getString(R.string.valuesnackbar), Snackbar.LENGTH_LONG)
+                            .setAction(android.R.string.ok, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                 }
@@ -85,19 +87,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.theme_changer) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.about:
+                Intent i = new Intent(this, AboutActivity.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
 

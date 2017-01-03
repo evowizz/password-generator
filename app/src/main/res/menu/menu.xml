@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.evo.passwordgenerator.MainActivity">
     <item
-        android:id="@+id/theme_changer"
+        android:id="@+id/about"
         android:orderInCategory="100"
         android:title="About"
         android:icon="@drawable/ic_info"

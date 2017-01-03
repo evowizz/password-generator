@@ -61,7 +61,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Generated password will appear here" />
+                    android:hint="@string/generatedpassword" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -79,10 +79,6 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="16dp"
                 app:rippleColor="@color/colorPrimary1"/>
-               <!-- android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="16dp" -->
 
             </android.support.design.widget.CoordinatorLayout>
         </RelativeLayout>
