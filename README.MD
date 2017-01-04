@@ -2,11 +2,18 @@
 
 A simple Password Generator for Android (**If you have any suggestion for the name, feel free to tell me**)
 
-## Screenshot
+## Summary
+* [Screenshot](#screenshot)
+* [Download](#download)
+* [License](#license)
+
+## <a name="screenshot"></a> Screenshot
 <a href="url"><img src="http://i.imgur.com/mHhXXQP.png" height="640" width="360" ></a>
 
+## <a name="download"></a> Download link
+Click [HERE (**NOT WORKING YET**)](https://labs.xda-developers.com/store/app/com.evo.passwordgenerator) to go on the XDA Labs page 
 
-## License
+## <a name="license"></a> License
 ~~~
 GNU General Public License 3.0
 
