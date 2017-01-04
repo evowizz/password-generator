@@ -25,6 +25,7 @@ import mehdi.sakout.aboutpage.Element;
 
 public class AboutActivity extends AppCompatActivity {
 
+    public LinearLayout main_view;
     String InstaID = "EvoWizz";
     String email = "EvoWizzFR@gmail.com";
     int xdacolor = Color.parseColor("#D49D2A");
@@ -32,7 +33,9 @@ public class AboutActivity extends AppCompatActivity {
     int instacolor = Color.parseColor("#E63A5B");
     int gitlabcolor = Color.parseColor("#FC6D26");
     int emailcolor = Color.parseColor("#DC483C");
-    public LinearLayout main_view;
+    String versionname = BuildConfig.VERSION_NAME;
+    private static final int MAX_CLICKS_TO_UNLOCK_EGG = 7;
+    private int numTimesVersionClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +47,10 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        String versionname = BuildConfig.VERSION_NAME;
-
         View aboutPage = new AboutPage(this)
                 .setImage(R.drawable.ic_generate_black)
                 .setDescription(getString(R.string.description))
-                .addItem(new Element().setTitle(getString(R.string.versionname) + " " + versionname))
+                .addItem(getVersion())
                 .addItem(getLibraries())
                 .addGroup(getString(R.string.connect))
                 .addItem(getEmailElement())
@@ -58,13 +58,39 @@ public class AboutActivity extends AppCompatActivity {
                 .addItem(getInstagramElement())
                 .addItem(getxdaElement())
                 .addItem(getGitlabElement())
-                .addGroup(getString(R.string.thanksto))
+                .addGroup(getString(R.string.connect))
                 .addItem(getvhelement())
                 .addItem(getmdiElement())
                 .addItem(getCopyRightsElement())
                 .create();
 
         mActivityRoot.addView(aboutPage, 1);
+    }
+
+    Element getVersion() {
+        Element versionElement = new Element();
+        versionElement.setTitle(getString(R.string.versionname) + " " + versionname);
+        versionElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (++numTimesVersionClicked == MAX_CLICKS_TO_UNLOCK_EGG) {
+                    numTimesVersionClicked = 0;
+                    Snackbar snackbar = Snackbar.make(getWindow().getDecorView().getRootView(), "Congrats! You found me :D", Snackbar.LENGTH_LONG)
+                            .setAction(android.R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                }
+                            });
+
+                    snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
+                    snackbar.setDuration(3000);
+                    snackbar.show();
+                } else {
+                }
+
+            }
+        });
+        return versionElement;
     }
 
     Element getLibraries() {
@@ -150,7 +176,7 @@ public class AboutActivity extends AppCompatActivity {
         return instagramElement;
     }
 
-    Element getGitlabElement(){
+    Element getGitlabElement() {
         Element gitlabElement = new Element();
         gitlabElement.setTitle(getString(R.string.sourcecode));
         gitlabElement.setIcon(R.drawable.about_screen_gitlab);
@@ -158,20 +184,15 @@ public class AboutActivity extends AppCompatActivity {
         gitlabElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar snackbar = Snackbar.make(getWindow().getDecorView().getRootView(),getString(R.string.sourcecodesnackbar), Snackbar.LENGTH_LONG)
-                        .setAction(android.R.string.ok, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                            }
-                        });
-                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
-                snackbar.show();
+                String url = "https://gitlab.com/EvoWizz/password-generator";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
             }
         });
         return gitlabElement;
     }
-
 
 
     //Thanksto:
@@ -192,7 +213,6 @@ public class AboutActivity extends AppCompatActivity {
         });
         return vhelement;
     }
-
 
 
     Element getmdiElement() {
