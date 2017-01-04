@@ -8,7 +8,7 @@ A simple Password Generator for Android (**If you have any suggestion for the na
 * [License](#license)
 
 ## <a name="screenshot"></a> Screenshot
-<a href="url"><img src="http://i.imgur.com/mHhXXQP.png" height="640" width="360" ></a>
+<img src="http://i.imgur.com/mHhXXQP.png" height="640" width="360" >
 
 ## <a name="download"></a> Download link
 Click [HERE (**NOT WORKING YET**)](https://labs.xda-developers.com/store/app/com.evo.passwordgenerator) to go on the XDA Labs page 
