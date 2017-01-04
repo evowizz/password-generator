@@ -58,7 +58,7 @@ public class AboutActivity extends AppCompatActivity {
                 .addItem(getInstagramElement())
                 .addItem(getxdaElement())
                 .addItem(getGitlabElement())
-                .addGroup(getString(R.string.connect))
+                .addGroup(getString(R.string.thanksto))
                 .addItem(getvhelement())
                 .addItem(getmdiElement())
                 .addItem(getCopyRightsElement())
