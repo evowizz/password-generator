@@ -17,7 +17,7 @@ Click [HERE](https://labs.xda-developers.com/store/app/com.evo.passwordgenerator
 ~~~
 GNU General Public License 3.0
 
-Copyright (c) 2017 EvoWizz
+Copyleft (c) 2017 EvoWizz
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

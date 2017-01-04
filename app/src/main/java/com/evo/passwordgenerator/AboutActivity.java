@@ -1,7 +1,5 @@
 package com.evo.passwordgenerator;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -11,12 +9,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -61,7 +56,7 @@ public class AboutActivity extends AppCompatActivity {
                 .addGroup(getString(R.string.thanksto))
                 .addItem(getvhelement())
                 .addItem(getmdiElement())
-                .addItem(getCopyRightsElement())
+                .addItem(getcopyLeftElement())
                 .create();
 
         mActivityRoot.addView(aboutPage, 1);
@@ -231,20 +226,21 @@ public class AboutActivity extends AppCompatActivity {
         return mdiElement;
     }
 
-    Element getCopyRightsElement() {
-        Element copyRightsElement = new Element();
-        final String copyrights = String.format(getString(R.string.copy_right), Calendar.getInstance().get(Calendar.YEAR));
-        copyRightsElement.setTitle(copyrights);
-        copyRightsElement.setIcon(R.drawable.ic_copyright);
-        copyRightsElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
-        copyRightsElement.setGravity(Gravity.CENTER);
-        copyRightsElement.setOnClickListener(new View.OnClickListener() {
+    Element getcopyLeftElement() {
+        Element copyLeftElement = new Element();
+        final String copyleft = String.format(getString(R.string.copyleft), Calendar.getInstance().get(Calendar.YEAR));
+        copyLeftElement.setTitle(copyleft);
+        copyLeftElement.setIcon(R.drawable.ic_copyleft);
+        copyLeftElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
+        copyLeftElement.setGravity(Gravity.CENTER);
+        copyLeftElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 displayLicenseDialogFragment();
             }
         });
-        return copyRightsElement;
+        return copyLeftElement;
+
     }
 
     @Override
@@ -263,4 +259,6 @@ public class AboutActivity extends AppCompatActivity {
         LibrariesDialog dialog = LibrariesDialog.newInstance();
         dialog.show(getFragmentManager(), "LibrariesDialog");
     }
+
+
 }

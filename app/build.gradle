@@ -6,8 +6,8 @@ android {
         applicationId "com.evo.passwordgenerator"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 10101
-        versionName "1.01"
+        versionCode 10102
+        versionName "1.02"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
