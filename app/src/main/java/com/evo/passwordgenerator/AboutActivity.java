@@ -96,7 +96,6 @@ public class AboutActivity extends AppCompatActivity {
     Element getLibraries() {
         Element librariesElement = new Element();
         librariesElement.setTitle(this.getString(R.string.libraries));
-        librariesElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
         librariesElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

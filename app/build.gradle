@@ -6,13 +6,14 @@ android {
         applicationId "com.evo.passwordgenerator"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 1010
-        versionName "1.0"
+        versionCode 10101
+        versionName "1.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
