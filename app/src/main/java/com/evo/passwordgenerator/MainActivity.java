@@ -1,7 +1,9 @@
 package com.evo.passwordgenerator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +15,7 @@ import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,6 +23,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -63,19 +68,41 @@ public class MainActivity extends AppCompatActivity  {
                     charNumber.setText("");
 
                 } else {
-                    Snackbar snackbarNC = Snackbar.make(clayout,getString(R.string.valuesnackbar), Snackbar.LENGTH_LONG)
+                    Snackbar snackbarNC = Snackbar.make(clayout, getString(R.string.valuesnackbar), Snackbar.LENGTH_LONG)
                             .setAction(android.R.string.ok, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                 }
                             });
                     snackbarNC.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
-                            snackbarNC.show();
+                    snackbarNC.show();
 
                 }
             }
         });
 
+
+//TODO: Finish the taptarget
+        final boolean taptarget = true;
+        if (taptarget) {
+            new MaterialTapTargetPrompt.Builder(MainActivity.this)
+                    .setTarget(findViewById(R.id.generateButton))
+                    .setPrimaryText("Send your first email")
+                    .setSecondaryText("Tap the envelop to start composing your first email")
+                    .setOnHidePromptListener(new MaterialTapTargetPrompt.OnHidePromptListener() {
+                        @Override
+                        public void onHidePrompt(MotionEvent event, boolean tappedTarget) {
+                            boolean taptarget = false;
+                        }
+
+                        @Override
+                        public void onHidePromptComplete() {
+
+                        }
+                    })
+                    .show();
+
+        }
     }
 
 
