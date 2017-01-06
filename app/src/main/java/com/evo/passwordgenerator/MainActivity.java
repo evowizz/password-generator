@@ -1,7 +1,9 @@
 package com.evo.passwordgenerator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
@@ -24,14 +26,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
-
+import com.google.firebase.crash.FirebaseCrash;
 
 public class MainActivity extends AppCompatActivity  {
 
     private EditText charNumber;
     private FloatingActionButton generateButton;
-    private Button pButton;
+    private Button clipbutton;
     private int  number=0;
     private TextView generatedPassword;
     private String passwToSave;
@@ -50,7 +51,9 @@ public class MainActivity extends AppCompatActivity  {
         generatedPassword = (EditText) findViewById(R.id.generatedPassword);
         generatedPassword.setMovementMethod(new ScrollingMovementMethod());
         generateButton = (FloatingActionButton) findViewById(R.id.generateButton);
+        clipbutton = (Button) findViewById(R.id.clipboard_button);
 
+        clipbutton.setVisibility(1);
         generatedPassword.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity  {
                     charNumber.setText("");
 
                 } else {
-                    Snackbar snackbarNC = Snackbar.make(clayout, getString(R.string.valuesnackbar), Snackbar.LENGTH_LONG)
+                    Snackbar snackbarNC = Snackbar.make(clayout, getString(R.string.valuesnackbarnc), Snackbar.LENGTH_LONG)
                             .setAction(android.R.string.ok, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -82,27 +85,34 @@ public class MainActivity extends AppCompatActivity  {
         });
 
 
-//TODO: Finish the taptarget
-        final boolean taptarget = true;
-        if (taptarget) {
-            new MaterialTapTargetPrompt.Builder(MainActivity.this)
-                    .setTarget(findViewById(R.id.generateButton))
-                    .setPrimaryText("Send your first email")
-                    .setSecondaryText("Tap the envelop to start composing your first email")
-                    .setOnHidePromptListener(new MaterialTapTargetPrompt.OnHidePromptListener() {
-                        @Override
-                        public void onHidePrompt(MotionEvent event, boolean tappedTarget) {
-                            boolean taptarget = false;
-                        }
+        clipbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(generatedPassword.getText().length() > 0){
+                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                android.content.ClipData clip = android.content.ClipData.newPlainText("Text Label", generatedPassword.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                    Snackbar snackbarCB = Snackbar.make(clayout, getString(R.string.clipboard), Snackbar.LENGTH_LONG)
+                            .setAction(android.R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                }
+                            });
+                    snackbarCB.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
+                    snackbarCB.show();
+                } else {
+                    Snackbar snackbarCBf = Snackbar.make(clayout, getString(R.string.clipboard_empty), Snackbar.LENGTH_LONG)
+                            .setAction(android.R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                }
+                            });
+                    snackbarCBf.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
+                    snackbarCBf.show();
+                }
+            }
+        });
 
-                        @Override
-                        public void onHidePromptComplete() {
-
-                        }
-                    })
-                    .show();
-
-        }
     }
 
 
@@ -126,5 +136,7 @@ public class MainActivity extends AppCompatActivity  {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }
 

@@ -7,8 +7,10 @@
     <string name="generatedpassword">Generated Password</string>
 
     //Main Activity (MainActivity.class)
-    <string name="valuesnackbar">Please enter a value</string>
+    <string name="valuesnackbarnc">Please enter a value</string>
     <string name="valuepassw">Please enter a value between 1 and 100</string>
+    <string name="clipboard">Copied to clipboard!</string>
+    <string name="clipboard_empty">Nothing to copy</string>
 
     //About Page (AboutActivity.class)
     <string name="description">Password Generator is an open-source app. Feel free to leave a review on the XDA Page.</string>

@@ -217,7 +217,7 @@ public class AboutActivity extends AppCompatActivity {
         mdiElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "Materialdesignicons.com";
+                String url = "http://materialdesignicons.com";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
@@ -228,8 +228,9 @@ public class AboutActivity extends AppCompatActivity {
 
     Element getcopyLeftElement() {
         Element copyLeftElement = new Element();
-        final String copyleft = String.format(getString(R.string.copyleft), Calendar.getInstance().get(Calendar.YEAR));
-        copyLeftElement.setTitle(copyleft);
+        final String year = String.format(getString(R.string.year), Calendar.getInstance().get(Calendar.YEAR));
+        final String copyleft = String.format(getString(R.string.copyleft));
+        copyLeftElement.setTitle(copyleft + " - " + year);
         copyLeftElement.setIcon(R.drawable.ic_copyleft);
         copyLeftElement.setColor(ContextCompat.getColor(this, mehdi.sakout.aboutpage.R.color.about_item_icon_color));
         copyLeftElement.setGravity(Gravity.CENTER);
