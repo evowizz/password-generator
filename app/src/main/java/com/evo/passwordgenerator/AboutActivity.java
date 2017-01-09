@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.afollestad.materialdialogs.internal.ThemeSingleton;
+
 import java.util.Calendar;
 
 import mehdi.sakout.aboutpage.AboutPage;
@@ -46,6 +48,7 @@ public class AboutActivity extends AppCompatActivity {
                 .setImage(R.drawable.ic_generate_black)
                 .setDescription(getString(R.string.description))
                 .addItem(getVersion())
+                .addItem(getChangelog())
                 .addItem(getLibraries())
                 .addGroup(getString(R.string.connect))
                 .addItem(getEmailElement())
@@ -86,6 +89,18 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
         return versionElement;
+    }
+
+    Element getChangelog() {
+        Element changelogElement = new Element();
+        changelogElement.setTitle(getString(R.string.changelog));
+        changelogElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangelog();
+            }
+        });
+        return changelogElement;
     }
 
     Element getLibraries() {
@@ -242,6 +257,14 @@ public class AboutActivity extends AppCompatActivity {
         });
         return copyLeftElement;
 
+    }
+
+    public void showChangelog() {
+        int accentColor = ThemeSingleton.get().widgetColor;
+        if (accentColor == 0)
+            accentColor = ContextCompat.getColor(this, R.color.colorAccent1);
+        ChangelogDialog.create(false, accentColor)
+                .show(getSupportFragmentManager(), "changelog");
     }
 
     @Override

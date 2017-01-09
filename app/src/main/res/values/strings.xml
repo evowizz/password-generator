@@ -1,6 +1,6 @@
 <resources>
     //Default
-    <string name="app_name">Password Generator</string>
+    <string name="app_name" translatable="false">Password Generator</string>
 
     //Main Activity Layout (main_activity.xml)
     <string name="number_of_characters">Number of characters</string>
@@ -18,13 +18,16 @@
     <string name="emailtext">Contact me</string>
     <string name="libraries">Libraries</string> // (In LibrariesDialog.class too)
     <string name="license">License</string> // (In LicenseDialog.class too)
-    <string name="copyleft">Copyleft</string>
-    <string name="year">%1$d</string>
+    <string name="copyleft" translatable="false">Copyleft</string>
+    <string name="year" translatable="false">%1$d</string>
     <string name="connect">Connect with me:</string>
     <string name="thanksto">Thanks to:</string>
     <string name="followmeI">Follow me on Instagram</string>
     <string name="followmeT">Follow me on Twitter</string>
     <string name="sourcecode">Source code</string>
     <string name="sourcecodesnackbar">Not yet :/ Maybe in the next update ?</string>
+
+    //Changelog Dialog (ChangelogDialog.class and AboutActivity.class)
+    <string name="changelog" translatable="false">Changelog</string>
 
 </resources>
