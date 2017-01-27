@@ -1,6 +1,8 @@
 package com.evo.passwordgenerator;
 
-class Passw {
+import android.content.Context;
+
+class PassAlpha {
 
     private int charNum;
     private String generatedPasswordChar;
@@ -11,7 +13,7 @@ class Passw {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w",
             "x", "y", "z"};
 
-    public Passw(int charNum) {
+    public PassAlpha(int charNum) {
         this.charNum = charNum;
 
     }
@@ -21,13 +23,13 @@ class Passw {
     }
 
 
-    public String randomChar() {
+    public String randomChar(Context context) {
 
         if (charNum < 1) {
-            return "Please, use a value between 1 and 100";
+            return context.getResources().getString(R.string.value_char_limit_text);
 
         } if (charNum > 100) {
-            return "Please, use a value between 1 and 100";
+            return context.getResources().getString(R.string.value_char_limit_text);
 
         }
 

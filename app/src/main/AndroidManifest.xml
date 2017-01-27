@@ -6,7 +6,8 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:debuggable="true">
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -15,6 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".AboutActivity"></activity>
+        <activity android:theme="@style/ReporterTheme" android:label="Reporter" android:name=".GHReporter" android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".MainActivityTest" android:windowSoftInputMode="adjustResize"></activity>
+
     </application>
 
 

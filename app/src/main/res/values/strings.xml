@@ -5,10 +5,14 @@
     //Main Activity Layout (main_activity.xml)
     <string name="number_of_characters">Number of characters</string>
     <string name="generatedpassword">Generated Password</string>
+    <string name="copy_to_clipboard">Copy</string>
+    <string name="clear_text">Clear</string>
+    <string name="save_text">Save</string>
 
     //Main Activity (MainActivity.class)
     <string name="valuesnackbarnc">Please enter a value</string>
-    <string name="valuepassw">Please enter a value between 1 and 100</string>
+    <string name="valuesnackbarcb">Nothing to clear</string>
+    <string name="value_char_limit_text">Please enter a value between 1 and 100</string>
     <string name="clipboard">Copied to clipboard!</string>
     <string name="clipboard_empty">Nothing to copy</string>
 

@@ -40,6 +40,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.about_activity);
         LinearLayout mActivityRoot = ((LinearLayout) findViewById(R.id.main_view));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final View navbar = (View) findViewById(android.support.design.R.id.design_navigation_view);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,7 +56,7 @@ public class AboutActivity extends AppCompatActivity {
                 .addItem(getTwitterElement())
                 .addItem(getInstagramElement())
                 .addItem(getxdaElement())
-                .addItem(getGitlabElement())
+                .addItem(getGithubElement())
                 .addGroup(getString(R.string.thanksto))
                 .addItem(getvhelement())
                 .addItem(getmdiElement())
@@ -80,7 +81,7 @@ public class AboutActivity extends AppCompatActivity {
                                 }
                             });
 
-                    snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary1));
+                    snackbar.setActionTextColor(getResources().getColor(R.color.colorAccent));
                     snackbar.setDuration(3000);
                     snackbar.show();
                 } else {
@@ -185,22 +186,21 @@ public class AboutActivity extends AppCompatActivity {
         return instagramElement;
     }
 
-    Element getGitlabElement() {
-        Element gitlabElement = new Element();
-        gitlabElement.setTitle(getString(R.string.sourcecode));
-        gitlabElement.setIcon(R.drawable.about_screen_gitlab);
-        gitlabElement.setColor(gitlabcolor);
-        gitlabElement.setOnClickListener(new View.OnClickListener() {
+    Element getGithubElement() {
+        Element githubElement = new Element();
+        githubElement.setTitle(getString(R.string.sourcecode));
+        githubElement.setIcon(R.drawable.about_icon_github);
+        githubElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://gitlab.com/EvoWizz/password-generator";
+                String url = "https://github.com/EvoWizz/password-generator";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
 
             }
         });
-        return gitlabElement;
+        return githubElement;
     }
 
 
@@ -262,7 +262,7 @@ public class AboutActivity extends AppCompatActivity {
     public void showChangelog() {
         int accentColor = ThemeSingleton.get().widgetColor;
         if (accentColor == 0)
-            accentColor = ContextCompat.getColor(this, R.color.colorAccent1);
+            accentColor = ContextCompat.getColor(this, R.color.colorAccent);
         ChangelogDialog.create(false, accentColor)
                 .show(getSupportFragmentManager(), "changelog");
     }

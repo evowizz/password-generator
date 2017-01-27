@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary1">#FFF</color>
-    <color name="colorPrimaryDark1">#FFF</color>
-    <color name="colorAccent1">#000</color>
-    <color name="colorPrimaryDarkLP">#AAAAAA</color>
+    <color name="colorPrimary">#FFF</color>
+    <color name="textColorPrimary">#000</color>
+    <color name="colorPrimaryDark">#AAAAAA</color>
+    <color name="colorAccent">#4286f5</color>
+    <color name="rippleColor">#81b1ff</color>
 
-    <color name="colorPrimary2">#000</color>
-    <color name="colorPrimaryDark2">#000</color>
-    <color name="colorAccent2">#FFF</color>
 
-    <color name="indigo">#3F51B5</color>
+    <color name="black">#000</color>
 </resources>

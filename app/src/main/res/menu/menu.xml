@@ -3,10 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.evo.passwordgenerator.MainActivity">
+
+    <item
+        android:id="@+id/activitylauncher"
+        android:title="MainActivityTest"
+        android:icon="@drawable/about_screen_twitter"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/reporter"
+        android:title="Bug Reporter"
+        android:icon="@drawable/ic_reporter"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/about"
-        android:orderInCategory="100"
         android:title="About"
         android:icon="@drawable/ic_info"
         app:showAsAction="always" />
+
 </menu>
