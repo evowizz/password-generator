@@ -15,6 +15,6 @@ public class GHReporter extends IssueReporterActivity {
 
     @Override
     public String getGuestToken() {
-        return "b6e3dcbed43a669649927a4790de0aff28cede52";
+        return "1fa7b5489ad70c1670efa5699af08bebc47b4103";
     }
 }
