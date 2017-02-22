@@ -5,9 +5,9 @@
     tools:context="com.evo.passwordgenerator.activities.MainActivity">
 
     <item
-        android:id="@+id/about"
-        android:title="About"
-        android:icon="@drawable/ic_info"
-        app:showAsAction="always" />
+        android:id="@+id/license"
+        android:title="@string/license"
+        app:showAsAction="never" />
+
 
 </menu>

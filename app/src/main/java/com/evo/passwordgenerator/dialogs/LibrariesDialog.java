@@ -1,4 +1,4 @@
-package com.evo.passwordgenerator;
+package com.evo.passwordgenerator.dialogs;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.webkit.WebView;
+
+import com.evo.passwordgenerator.R;
 
 public class LibrariesDialog extends DialogFragment {
 

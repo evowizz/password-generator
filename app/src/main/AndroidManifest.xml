@@ -7,19 +7,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fitsSystemWindows="true"
-        android:debuggable="true">
+        android:debuggable="true"
+        android:resizeableActivity="false">
 
-        <activity android:name=".MainActivity">
+
+
+        <activity android:name=".activities.MainActivity" android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:theme="@style/ReporterTheme" android:label="Reporter" android:name=".GHReporter" android:parentActivityName=".MainActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".MainActivityTest" android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".activities.AboutActivity" />
+        <activity android:name=".activities.AboutActivity_test" />
+        <activity android:name=".activities.AboutActivity_test2" android:theme="@style/AppTheme.MaterialAboutActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:theme="@style/ReporterTheme" android:label="Reporter" android:name=".activities.GHReporter"
+            android:parentActivityName=".activities.AboutActivity_test2" />
+
+        <provider
+            android:name=".data.PasswordProvider"
+            android:authorities="com.evo.passwordgenerator"
+            android:exported="false" />
 
     </application>
 

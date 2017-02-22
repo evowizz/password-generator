@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/support_development">
+        <Preference
+            android:key="issuereporter"
+            android:summary="@string/issue_reporter"
+            android:title="@string/issue_reporter_title" />
+        <Preference
+            android:key="translate"
+            android:summary="@string/translate"
+            android:title="@string/translate_title" />
+        <Preference
+            android:key="rate"
+            android:summary="@string/rate"
+            android:title="@string/rate_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/dev">
+        <Preference
+            android:key="developer"
+            android:summary="I'm an Android fan and developer \nCopyleft - 2017"
+            android:title="EvoWizz" />
+        <Preference
+            android:key="devemail"
+            android:summary="@string/emailtext"
+            android:title="Email" />
+        <Preference
+            android:key="devtwitter"
+            android:summary="@string/followmeT"
+            android:title="Twitter" />
+        <Preference
+            android:key="devgoogleplus"
+            android:summary="@string/followmeG"
+            android:title="Google+" />
+        <Preference
+            android:key="devinstagram"
+            android:summary="@string/followmeI"
+            android:title="Instagram" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/credits">
+        <Preference android:key="libraries"
+            android:title="@string/libraries"
+            android:summary="@string/libraries_sum">
+
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

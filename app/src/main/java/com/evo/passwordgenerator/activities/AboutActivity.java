@@ -1,4 +1,4 @@
-package com.evo.passwordgenerator;
+package com.evo.passwordgenerator.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +14,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
+import com.evo.passwordgenerator.BuildConfig;
+import com.evo.passwordgenerator.R;
+import com.evo.passwordgenerator.dialogs.ChangelogDialog;
+import com.evo.passwordgenerator.dialogs.LibrariesDialog;
+import com.evo.passwordgenerator.dialogs.LicenseDialog;
 
 import java.util.Calendar;
 

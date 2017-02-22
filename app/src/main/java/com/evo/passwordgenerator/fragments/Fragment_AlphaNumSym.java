@@ -1,4 +1,4 @@
-package com.evo.passwordgenerator;
+package com.evo.passwordgenerator.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,12 +10,17 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.evo.passwordgenerator.R;
 
-public class fragment_test extends Fragment {
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
+
+public class Fragment_AlphaNumSym extends Fragment {
 
     private Context context;
     private EditText charNumber;
@@ -26,7 +31,7 @@ public class fragment_test extends Fragment {
     private TextView generatedPassword;
     private String passwToSave;
 
-    public fragment_test() {
+    public Fragment_AlphaNumSym() {
         // Required empty public constructor
     }
 
@@ -39,7 +44,7 @@ public class fragment_test extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_test, container, false);
+        View view = inflater.inflate(R.layout.fragment_base, container, false);
         final View clayout = view.findViewById(R.id.clayout);
 
         charNumber = (EditText) view.findViewById(R.id.charNumber);
@@ -57,7 +62,7 @@ public class fragment_test extends Fragment {
             public void onClick(View v) {
                 if (charNumber.getText().length() > 0) {
                     number = Integer.parseInt(charNumber.getText().toString());
-                    PassAlpha pword = new PassAlpha(number);
+                    Pass_AlphaNumSym pword = new Pass_AlphaNumSym(number);
                     passwToSave = pword.randomChar(context);
                     generatedPassword.setText(passwToSave);
                     number = 0;
@@ -125,6 +130,16 @@ public class fragment_test extends Fragment {
                 }
             }
         });
+        clayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+                charNumber.clearFocus();
+                generatedPassword.clearFocus();
+            }
+        });
+
         return view;
 
     }

@@ -1,5 +1,6 @@
-package com.evo.passwordgenerator;
+package com.evo.passwordgenerator.activities;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,15 +16,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
 import com.evo.passwordgenerator.R;
-import com.evo.passwordgenerator.fragment_test;
+import com.evo.passwordgenerator.dialogs.ChangelogDialog;
+import com.evo.passwordgenerator.fragments.Fragment_Alpha;
+import com.evo.passwordgenerator.fragments.Fragment_AlphaNumSym;
+import com.evo.passwordgenerator.fragments.Fragment_Num;
 
-public class MainActivityTest extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -39,13 +46,14 @@ public class MainActivityTest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity_test);
+        updateRecentTasksUi();
+        setContentView(R.layout.main_activity);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.menu);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -55,6 +63,7 @@ public class MainActivityTest extends AppCompatActivity {
         setupTabIcons();
 
         init();
+
     }
 
 
@@ -67,15 +76,14 @@ public class MainActivityTest extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new fragment_test(), "ONE");
-        adapter.addFragment(new fragment_test(), "TWO");
-        adapter.addFragment(new fragment_test(), "THREE");
+        adapter.addFragment(new Fragment_Alpha());
+        adapter.addFragment(new Fragment_Num());
+        adapter.addFragment(new Fragment_AlphaNumSym());
         viewPager.setAdapter(adapter);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
@@ -91,9 +99,8 @@ public class MainActivityTest extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
         }
 
         @Override
@@ -144,19 +151,21 @@ public class MainActivityTest extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.about:
-                Intent about = new Intent(this, AboutActivity.class);
+                Intent about = new Intent(this, AboutActivity_test2.class);
                 startActivity(about);
-                return true;
-            case R.id.reporter:
-                Intent reporter = new Intent(this, GHReporter.class);
-                startActivity(reporter);
-                return true;
-            case R.id.activitylauncher:
-                Intent alauncher = new Intent(this, MainActivityTest.class);
-                startActivity(alauncher);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void updateRecentTasksUi() {
+        final ActivityManager.TaskDescription taskDescription =
+                new ActivityManager.TaskDescription(
+                        getString(R.string.app_name),
+                        null,
+                        ContextCompat.getColor(this, R.color.colorAccent));
+
+        setTaskDescription(taskDescription);
     }
 }

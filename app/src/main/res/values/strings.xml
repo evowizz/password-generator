@@ -1,6 +1,6 @@
 <resources>
     //Default
-    <string name="app_name" translatable="false">Password Generator</string>
+    <string name="app_name" translatable="false">Passy</string>
 
     //Main Activity Layout (main_activity.xml)
     <string name="number_of_characters">Number of characters</string>
@@ -19,19 +19,39 @@
     //About Page (AboutActivity.class)
     <string name="description">Password Generator is an open-source app. Feel free to leave a review on the XDA Page.</string>
     <string name="versionname">App version:</string>
-    <string name="emailtext">Contact me</string>
-    <string name="libraries">Libraries</string> // (In LibrariesDialog.class too)
-    <string name="license">License</string> // (In LicenseDialog.class too)
+    <string name="emailtext">Contact me via email</string>
+    <string name="libraries">Libraries</string>
+    // (In LibrariesDialog.class too)
+    <string name="libraries_sum">Tap to view all libraries used in the app</string>
+    <string name="license">License</string>
+    // (In LicenseDialog.class too)
     <string name="copyleft" translatable="false">Copyleft</string>
     <string name="year" translatable="false">%1$d</string>
     <string name="connect">Connect with me:</string>
     <string name="thanksto">Thanks to:</string>
     <string name="followmeI">Follow me on Instagram</string>
     <string name="followmeT">Follow me on Twitter</string>
+    <string name="followmeG">Follow me on Google+</string>
     <string name="sourcecode">Source code</string>
-    <string name="sourcecodesnackbar">Not yet :/ Maybe in the next update ?</string>
+    <string name="about">About</string>
+    <string name="support_development">Support Development</string>
+    <string name="dev">Developer</string>
+    <string name="translate_title">Translate</string>
+    <string name="translate">Help us by translating the app in your language</string>
+    <string name="issue_reporter_title">Report an issue</string>
+    <string name="issue_reporter">Having an issue ? Report it here</string>
+    <string name="rate">Rate us on XDA Labs</string>
+    <string name="rate_title">Rate</string>
+    <string name="credits">Credits</string>
 
     //Changelog Dialog (ChangelogDialog.class and AboutActivity.class)
     <string name="changelog" translatable="false">Changelog</string>
+    <string name="dev_subtext">Android fan and developer</string>
+    <string name="developer">Developer</string>
+    <string name="translators">Translators</string>
+    <string name="list_all_translators">List of all translators</string>
+    <string name="version">Version</string>
+    <string name="sup_dev">Support development</string>
+    <string name="czech">Czech</string>
 
 </resources>

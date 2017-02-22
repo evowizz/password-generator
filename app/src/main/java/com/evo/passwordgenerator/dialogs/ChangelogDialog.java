@@ -1,4 +1,4 @@
-package com.evo.passwordgenerator;
+package com.evo.passwordgenerator.dialogs;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -13,6 +13,7 @@ import android.webkit.WebView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
+import com.evo.passwordgenerator.R;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

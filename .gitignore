@@ -47,4 +47,3 @@ captures/
 /.idea/workspace.xml
 /.idea/libraries
 *.iml
-/app/src/main/java/com/evo/passwordgenerator/GHReporter.java

@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/RelativeL"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?colorPrimary"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    android:weightSum="1"
-    tools:context="com.evo.passwordgenerator.MainActivity">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -21,98 +13,23 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?colorPrimary"
-            android:elevation="4dp"
-            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:title="@string/app_name" />
+            android:title="@string/app_name"
+            android:titleTextColor="@color/textColorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="@color/textColorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/AppBar"
-        android:layout_marginTop="8dp"
-        android:background="?colorPrimary">
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textinput1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/charNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="16dp"
-                android:digits="0123456789"
-                android:hint="@string/number_of_characters"
-                android:inputType="numberDecimal"
-                android:maxLength="3" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textinput2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textinput1">
-
-            <EditText
-                android:id="@+id/generatedPassword"
-                style="@style/Widget.AppCompat.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/generatedpassword" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/clipboard_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/textinput2"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:background="?attr/selectableItemBackground"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:text="@string/copy_to_clipboard" />
-
-        <Button
-            android:id="@+id/clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textinput2"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:background="?attr/selectableItemBackground"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:text="@string/clear_text" />
-
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/clayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/generateButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/ic_generate"
-                app:rippleColor="@color/rippleColor" />
-
-        </android.support.design.widget.CoordinatorLayout>
-    </RelativeLayout>
-</RelativeLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>

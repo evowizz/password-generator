@@ -3,8 +3,22 @@
     <color name="colorPrimary">#FFF</color>
     <color name="textColorPrimary">#000</color>
     <color name="colorPrimaryDark">#AAAAAA</color>
-    <color name="colorAccent">#4286f5</color>
-    <color name="rippleColor">#81b1ff</color>
+    <color name="colorAccent">#4286F5</color>
+    <color name="rippleColor">#81B1FF</color>
+
+    <color name="colorIcon">#616161</color>
+
+    <color name="colorEmail">#FEBE04</color>
+    <color name="colorTwitter">#1DA1F2</color>
+    <color name="colorGooglePlus">#F44336</color>
+    <color name="colorInstagram">#EB474E</color>
+    <color name="colorLibraries">#43D46A</color>
+    <color name="colorReporter">#607D8B</color>
+    <color name="colorVersion">#F44336</color>
+    <color name="colorChangelog">#4286F5</color>
+    <color name="colorRate">#FFEA00</color>
+    <color name="colorTranslators">#FF8B14</color>
+    <color name="colorTranslate">#4C8FFC</color>
 
 
     <color name="black">#000</color>

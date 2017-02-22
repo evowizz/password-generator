@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="translators">
+        <item>Vojtechh (Czech translator)</item>
+        <item>Google</item>
+        <item>Instagram</item>
+        <item>Facebook</item>
+    </string-array>
+
+</resources>
