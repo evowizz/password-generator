@@ -1,6 +1,8 @@
 package com.evo.passwordgenerator.fragments;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.evo.passwordgenerator.R;
+import com.evo.passwordgenerator.activities.SaveActivity;
+import com.evo.passwordgenerator.data.PasswordContract;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
@@ -30,6 +34,7 @@ public class Fragment_Alpha extends Fragment implements android.support.v4.app.L
     private FloatingActionButton generateButton;
     private Button clipbutton;
     private Button clearbutton;
+    private Button savebutton;
     private int  number=0;
     private TextView generatedPassword;
     private String passwToSave;
@@ -56,6 +61,7 @@ public class Fragment_Alpha extends Fragment implements android.support.v4.app.L
         generateButton = (FloatingActionButton) view.findViewById(R.id.generateButton);
         clipbutton = (Button) view.findViewById(R.id.clipboard_button);
         clearbutton = (Button) view.findViewById(R.id.clear_button);
+        savebutton = (Button) view.findViewById(R.id.save_button);
         charNumber = (DiscreteSeekBar) view.findViewById(R.id.charNumber);
         context = getActivity().getApplicationContext();
 
@@ -120,6 +126,33 @@ public class Fragment_Alpha extends Fragment implements android.support.v4.app.L
                     snackbarCB.setActionTextColor(getResources().getColor(R.color.colorAccent));
                     snackbarCB.show();
 
+                }
+            }
+        });
+
+        savebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!passwToSave.isEmpty()) {
+
+                    ContentValues values = new ContentValues();
+
+                    values.put(PasswordContract.PasswordEntry.COLUMN_PASSWORD, passwToSave);
+                    values.put(PasswordContract.PasswordEntry.COLUMN_TIME, System.currentTimeMillis());
+
+                    getActivity().getContentResolver().insert(PasswordContract.PasswordEntry.CONTENT_URI, values);
+
+                    // TODO: Change text here to what you want
+                    Snackbar snackbarSave = Snackbar.make(clayout, "Password saved!", Snackbar.LENGTH_LONG)
+                            .setAction("Saved", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent i = new Intent(getActivity().getApplicationContext(), SaveActivity.class);
+                                    startActivity(i);
+                                }
+                            });
+                    snackbarSave.setActionTextColor(getResources().getColor(R.color.colorAccent));
+                    snackbarSave.show();
                 }
             }
         });

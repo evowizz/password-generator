@@ -53,5 +53,6 @@
     <string name="version">Version</string>
     <string name="sup_dev">Support development</string>
     <string name="czech">Czech</string>
+    <string name="title_activity_save">SaveActivity</string>
 
 </resources>

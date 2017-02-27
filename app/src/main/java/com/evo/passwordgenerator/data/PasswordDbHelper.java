@@ -21,7 +21,7 @@ public class PasswordDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_PASSWORD_TABLE = "CREATE TABLE " + PasswordEntry.TABLE_NAME + " (" +
                 PasswordEntry._ID + " INTEGER PRIMARY KEY," +
                 PasswordEntry.COLUMN_PASSWORD + " TEXT NOT NULL, " +
-                PasswordEntry.COLUMN_TIME + " INTEGER NOT NULL, " +
+                PasswordEntry.COLUMN_TIME + " INTEGER NOT NULL " +
                 " );";
 
         sqLiteDatabase.execSQL(SQL_CREATE_PASSWORD_TABLE);
