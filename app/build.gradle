@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -12,6 +13,7 @@ android {
 
         //If you want to make yours, add the next line in your gradle.properties file
         //AppGHkey="YOUR_OWN_GITHUB_API_KEY_HERE"
+        buildConfigField("String", "API_KEY", AppGHkey)
 
 
     }
@@ -30,28 +32,26 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-
-
-
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:support-v13:25.1.0'
     compile 'com.android.support:cardview-v7:25.1.0'
     compile 'com.google.firebase:firebase-crash:10.0.1'
-    compile('com.mikepenz:fastadapter:2.1.7@aar') {
-        transitive = true
-    }
-    compile 'com.mikepenz:fastadapter-commons:2.1.0@aar'
-    compile 'com.mikepenz:fastadapter-extensions:2.1.7@aar'
+
     compile 'com.github.daniel-stoneuk:material-about-library:32dee46954'
-    compile 'com.mikepenz:iconics-core:2.8.2@aar'
+    compile "com.mikepenz:iconics-core:2.8.2@aar"
     compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
     compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
+
     compile 'com.github.medyo:android-about-page:1.1.1'
     compile 'com.afollestad.material-dialogs:core:0.9.3.0'
     compile 'com.heinrichreimersoftware:android-issue-reporter:eae4c73cbeb91e98da83fe79a3dea088a8b97448'
+
     compile 'org.adw.library:discrete-seekbar:1.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.github.aaabidunique:android-utility:1.0.0'
+
+    debugCompile 'com.sloydev:preferator:1.1.0'
+    releaseCompile 'com.sloydev:preferator-no-op:1.1.0'
+
     testCompile 'junit:junit:4.12'
 }

@@ -9,10 +9,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
+import com.ali.androidutility.helper.SharedPreferenceHelper;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem;
 import com.evo.passwordgenerator.BuildConfig;
 import com.evo.passwordgenerator.R;
@@ -81,6 +83,7 @@ public class AboutActivity_test2 extends MaterialAboutActivity {
                                         public void onClick(View v) {
                                         }
                                     });
+                            SharedPreferenceHelper.setInt(c, "found", 1);
 
                             snackbar.setActionTextColor(getResources().getColor(R.color.colorAccent));
                             snackbar.setDuration(3000);
@@ -171,6 +174,24 @@ public class AboutActivity_test2 extends MaterialAboutActivity {
                     }
                 })
                 .build());
+
+        MaterialAboutActionItem.Builder easter_egg = new MaterialAboutActionItem.Builder();
+        if(SharedPreferenceHelper.getInt(c, "found", 0) == 0) {
+            easter_egg.subText("0/2");
+        } else if(SharedPreferenceHelper.getInt(c, "found", 1) == 1) {
+            easter_egg.subText("1/2");
+        } else if(SharedPreferenceHelper.getInt(c, "found", 2) == 2) {
+            easter_egg.subText("2/2");
+        }
+
+        appCardBuilder.addItem(easter_egg
+                .text("Easter Eggs Found")
+                .icon(new IconicsDrawable(c)
+                        .icon(GoogleMaterial.Icon.gmd_panorama_fish_eye)
+                        .color(ContextCompat.getColor(c, colorIcon))
+                        .sizeDp(18))
+                .build());
+
 
         MaterialAboutCard.Builder authorCardBuilder = new MaterialAboutCard.Builder();
         authorCardBuilder.title(R.string.developer);
@@ -294,6 +315,8 @@ public class AboutActivity_test2 extends MaterialAboutActivity {
 
 
         return new MaterialAboutList(appCardBuilder.build(), authorCardBuilder.build(), supdevCardBuilder.build());
+
+
     }
 
     @Override

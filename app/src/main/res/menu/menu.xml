@@ -10,4 +10,9 @@
         android:icon="@drawable/ic_info"
         app:showAsAction="always" />
 
+    <item
+        android:title="Debug"
+        android:id="@+id/debug"
+        android:icon="@drawable/ic_generate" />
+
 </menu>

@@ -16,25 +16,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
+import com.evo.passwordgenerator.BuildConfig;
 import com.evo.passwordgenerator.R;
 import com.evo.passwordgenerator.dialogs.ChangelogDialog;
 import com.evo.passwordgenerator.fragments.Fragment_Alpha;
 import com.evo.passwordgenerator.fragments.Fragment_AlphaNumSym;
 import com.evo.passwordgenerator.fragments.Fragment_Num;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.sloydev.preferator.Preferator;
 
 
 public class MainActivity extends AppCompatActivity {
 
-
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static final String PRIVATE_PREF = "myapp";
+    private static final String PRIVATE_PREF = BuildConfig.APPLICATION_ID + ".version.changes";
     private static final String VERSION_KEY = "version_number";
     private int[] tabIcons = {
             R.drawable.tab_alpha_selector,
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         if (currentVersionNumber > savedVersionNumber) {
             showChangelog();
 
-            SharedPreferences.Editor editor   = sharedPref.edit();
+            SharedPreferences.Editor editor = sharedPref.edit();
 
             editor.putInt(VERSION_KEY, currentVersionNumber);
             editor.commit();
@@ -138,6 +141,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    boolean is_debug = BuildConfig.DEBUG;
+
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        MenuItem Debug = menu.findItem(R.id.debug);
+        Debug.setVisible(is_debug);
+        return true;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -153,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent about = new Intent(this, AboutActivity_test2.class);
                 startActivity(about);
                 return true;
+            case R.id.debug:
+                Preferator.launch(getBaseContext());
             default:
                 return super.onOptionsItemSelected(item);
         }
